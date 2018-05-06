@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+
+<html>
+
+    <head>
+        <title> MyCompany </title>
+        <meta name="viewport" content="width=device-width, initial-scale=2.0">
+        <script src="JavaScript/jquery.js"> </script>
+        <script src="JavaScript/main.js"> </script>
+
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+                
+        
+        <style>
+
+            body {
+                background-color: rgb(240, 240, 240);
+            }
+            #main-container {
+                background-color: white;
+                padding: 10px;
+                margin-top: 45px;
+                margin-bottom:50px;
+                padding-bottom: 55px;
+            }
+
+            .shadow {
+                -webkit-box-shadow: 0px 0px 41px 0px rgba(0,0,0,0.5);
+                -moz-box-shadow: 0px 0px 41px 0px rgba(0,0,0,0.5);
+                box-shadow: 0px 0px 41px 0px rgba(0,0,0,0.5);
+            }
+
+            #search-container {
+                padding: 20px;
+            }
+
+            .employeeForm { 
+                width: 40%;
+                background-color: rgb(240, 240, 240);
+                padding-top: 10px;
+                padding-bottom: 10px;
+            }
+            
+            .employeeForm table td{
+                padding-left: 10px;
+                padding-right: 10px;
+                padding-top:5px;
+                text-align: right;
+            }
+
+            .submit {
+                margin-top: 20px;
+                margin-bottom: 10px;
+                width: 60%;
+            }
+
+
+            .input{
+                width: 75%;
+            }
+
+            .alert-container {
+                margin-top: 20px;
+            }
+
+            .employeeTable table {
+                background-color: rgb(240, 240, 240);
+                margin-top: 30px;
+                width: 100%;
+                border-radius: 5px;
+            }
+
+            .employeeTable table td, .employeeTable table th {
+                padding: 10px;
+            }
+            
+            .employeeTable table .header {
+                border-bottom: 2px solid rgb(189, 189, 189);
+            }
+
+            .alert {
+                width: 80%;
+                margin-bottom: 10px;
+            }
+
+            .closeBtn {
+                margin-top: 30px;
+                float: right;
+            }
+
+        </style>
+
+    </head>
+
+    <body>
+
+        <header>
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm">
+                        <div class="">
+                    </div>
+                    <div class="col-lg">
+                        <h1> Company Name </h1>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <div id="main-container" class="container shadow">
+            <div id="search-container" class="container-fluid">
+                <div class="row">
+                    <div class="col-md-10">
+                        <input type="text" class="form-control" name="searchPattern"/>
+                    </div>
+                    <div class="col-md-2">
+                        <center>
+                            <button class="btn btn-primary search" onclick="search()"> <span class='glyphicon glyphicon-search'></span> Search Employees </button>
+                        </center>
+                    </div>
+                </div>
+                <center>
+                    <div class="employeeTable"> </div>
+                </center>
+            </div>
+
+                
+            <hr />
+
+            <div class='container-fluid'>
+                <div class="employeeForm">
+                    <center>
+                        <h3> Add Employee </h3>
+                        <div class="alert-container">
+                            <div class="alert alert-success" role="alert">
+                                
+                            </div>
+                            <div class="alert alert-danger" role="alert">
+                                
+                            </div>
+                        </div>
+                        <hr />
+                        <table>
+                            <tr><td>First Name</td><td class="input"><input type="text" class="form-control" name="FirstName"/></td></tr>
+                            <tr><td>Last Name</td><td class="input"><input type="text" class="form-control" name="LastName"/></td></tr>
+                            <tr><td>Email</td><td class="input"><input type="text" class="form-control" name="Email"/></td></tr>
+                            <tr><td>Password</td class="input"><td><input type="password" class="form-control" name="Password"/></td></tr>
+                            <tr><td>Age</td><td class="input"><input type="text" class="form-control" name="Age"/></td></tr>
+                            <tr><td>Role</td><td class="input"><input type="text" class="form-control" name="Role"/></td></tr>
+                            <tr><td>Profile</td><td class="input"><input type="text" class="form-control" name="Profile"/></td></tr>
+                        </table>
+                        <button class="btn btn-primary submit" onclick="add()">Submit</button>
+                    </center>
+                </div>
+            </div>
+
+
+        </div>
+
+    </body>
+
+</html>
