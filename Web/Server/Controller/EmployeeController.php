@@ -36,6 +36,13 @@ class EmployeeController {
         return json_encode(array("response" => 402));
     }
 
+    public function updateRole ($email, $roles) {
+        header('Content-Type: application/json');
+        if ($this->service->updateRole($email, $roles))
+            return json_encode(array("response" => 200));
+        return json_encode(array("response" => 402));
+    }
+
 }
 
 ?>

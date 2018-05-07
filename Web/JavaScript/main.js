@@ -43,7 +43,22 @@ function add () {
 }
 
 function update (email) {
-    alert("TODO update the data for: " + email);
+
+    var postData = {
+        "method": "updateRole",
+        "Email": email,
+        "Role": $("input[name='Role_"+email+"']").val()
+    };
+
+    $.ajax({
+        type: "POST",
+        dataType: "json",
+        url: "Server/api.php",
+        data: postData,
+        success: function(data) {
+            search();
+        }
+    });
 }
 
 function remove (email) {
@@ -78,11 +93,11 @@ function printDataTable (data) {
     
     for (var i = 0; i < data.length; i++) {
         $(".employeeTable table").append("<tr>" + 
-        "<td> <input type='text' class='form-control' value='" + data[i].FirstName  + "'/> </td>" + 
-        "<td> <input type='text' class='form-control' value='" + data[i].LastName   + "'/> </td> " + 
-        "<td> <input type='text' class='form-control' value='" + data[i].Email      + "'/> </td> " + 
-        "<td> <input type='text' class='form-control' value='" + data[i].Age        + "'/> </td> " + 
-        "<td> <input type='text' class='form-control' value='" + data[i].Role       + "'/> </td> " +
+        "<td> <input type='text' class='form-control' value='" + data[i].FirstName  + "' disabled/> </td>" + 
+        "<td> <input type='text' class='form-control' value='" + data[i].LastName   + "' disabled/> </td> " + 
+        "<td> <input type='text' class='form-control' value='" + data[i].Email      + "' disabled/> </td> " + 
+        "<td> <input type='text' class='form-control' value='" + data[i].Age        + "' disabled/> </td> " + 
+        "<td> <input name='Role_"+data[i].Email+"' type='text' class='form-control' value='" + data[i].Role       + "'/> </td> " +
         "<td> " +
         "<button class='removeBtn btn btn-danger' style='width:40px' toRemove='"+data[i].Email+"'> <span class='glyphicon glyphicon-trash'></span> </button>" + 
         "<button class='updateBtn btn btn-warning' style='width:40px' toUpdate='"+data[i].Email+"'> <span class='glyphicon glyphicon-open'></span> </button>" +

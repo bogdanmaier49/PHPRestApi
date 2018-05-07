@@ -4,16 +4,6 @@ include_once("Controller/EmployeeController.php");
 
 $employeeContrller = new EmployeeController();
 
-// $employeeContrller->addEmployee(new Employee(
-//     "Bogdan",
-//     "Maier",
-//     "bogdanmaier49@gmail.com",
-//     "1234",
-//     20,
-//     "Dev",
-//     0
-// ));
-
 if (isset($_GET["method"])) {
 
     if ($_GET["method"] == "findAllEmployees") {
@@ -51,6 +41,11 @@ if (isset($_POST["method"])) {
     if ($_POST["method"] == "removeEmployee") {
         if (isset($_POST["Email"]))
             echo $employeeContrller->removeEmployee($_POST["Email"]);
+    }
+
+    if ($_POST["method"] == "updateRole") {
+        if (isset($_POST["Email"]) && isset($_POST["Role"]))
+            echo $employeeContrller->updateRole($_POST["Email"], $_POST["Role"]);
     }
 
 }

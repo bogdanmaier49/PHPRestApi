@@ -136,6 +136,16 @@ class EmployeeRepository {
         return false;
     }
 
+    public function updateRole ($email, $role) {
+        $query = mysqli_query($this->connection, "UPDATE Employees SET Role='$role' WHERE Email='$email';") or exit(mysqli_error($this->connection));
+
+        if (!mysqli_query($this->connection, $query)) {
+            return false;
+        }
+
+        return true;
+    }
+
 }
 
 ?>

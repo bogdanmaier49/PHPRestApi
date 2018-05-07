@@ -42,6 +42,10 @@ class EmployeeService {
         return $this->repository->emailExits($email);
     }
 
+    public function updateRole ($email, $newRole) {
+        return $this->repository->updateRole($email, $newRole);
+    }
+
 }
 
 ?>
